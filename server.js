@@ -3,11 +3,14 @@ const app = express()
 const port = 8888
 
 // Route modules
-const accountRoute = require('./route/accountRoute');
+const accountRoute = require('./src/account/account.route');
+const bookRoute = require('./src/book/book.route');
+const notificationRoute = require('./src/notification/notification.route');
 
 // Middleware for JSON body
 app.use(express.json());
 
+// Middleware for monitoring request
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
     console.log('Request Body:', req.body);
@@ -17,6 +20,12 @@ app.use((req, res, next) => {
 
 // Account Route
 app.use('/api/account', accountRoute);
+
+// Book Route
+app.use('/api/book', bookRoute);
+
+// Notification Route
+app.use('/api/notification', notificationRoute);
 
 // Health check
 app.get('/', (req, res) => {
