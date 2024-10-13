@@ -41,7 +41,7 @@ pipeline {
                     // Kiểm tra và dừng container cũ nếu tồn tại
                     echo "Stopping and removing existing container if exists"
 
-                    sh "./alpine/ssh2qemu.sh"
+                    sh "/data/data/com.termux/files/home/alpine/ssh2qemu.sh"
 
                     sh """
 
