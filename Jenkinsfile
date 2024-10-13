@@ -35,8 +35,8 @@ pipeline {
         }
 
         stage('Run Docker Container') {
+            agent { label 'a71' }
             steps {
-                agent { label 'a71' }
                 script {
                     // Kiểm tra và dừng container cũ nếu tồn tại
                     echo "Stopping and removing existing container if exists"
